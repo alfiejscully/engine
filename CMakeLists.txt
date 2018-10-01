@@ -8,4 +8,5 @@ add_executable(game
 
 add_library(myengine
   src/myengine/Entity.cpp
+  src/myengine/Entity.h
 )
