@@ -1,0 +1,11 @@
+
+class Component
+{
+private:
+
+
+
+public:
+	
+
+};
