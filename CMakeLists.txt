@@ -3,7 +3,8 @@ project(Engine)
 
 add_executable(game
   src/sandbox/main.cpp
-
+  src/sandbox/TestScreen.cpp
+  src/sandbox/TestScreen.h
 )
 
 add_library(myengine

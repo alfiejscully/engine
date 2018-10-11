@@ -3,7 +3,7 @@ class Environment
 {
 private:
 
-	float m_deltaRime;
+	float m_deltaTime;
 
 public:
 

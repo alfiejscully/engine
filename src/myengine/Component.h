@@ -1,3 +1,4 @@
+
 #include <memory>
 
 class Entity;
@@ -20,3 +21,4 @@ public:
 	std::shared_ptr<Environment> getEnvironment();
 
 };
+
