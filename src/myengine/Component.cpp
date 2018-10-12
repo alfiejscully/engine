@@ -21,5 +21,5 @@ std::shared_ptr<Keyboard> Component::getKeyboard()
 
 std::shared_ptr<Environment> Component::getEnvironment()
 {
-	return std::shared_ptr<Environment>();
+	/*return std::shared_ptr<Environment>();*/
 }
