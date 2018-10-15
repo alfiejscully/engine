@@ -16,10 +16,10 @@ private:
 
 public:
 
-	std::shared_ptr<Core> initialize();
-	void start();
-	void stop();
-	std::shared_ptr<Entity> addEntity();
+	std::shared_ptr<Core> Initialize();
+	void Start();
+	void Stop();
+	std::shared_ptr<Entity> AddEntity();
 
 
 };

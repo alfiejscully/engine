@@ -1,6 +1,10 @@
 cmake_minimum_required (VERSION 2.6)
 project(Engine)
 
+include_directories(
+  src
+  contrib
+)
 add_executable(game
   src/sandbox/main.cpp
   src/sandbox/TestScreen.cpp

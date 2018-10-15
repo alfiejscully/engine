@@ -1,22 +1,23 @@
 #include "Core.h"
 #include "Entity.h"
 
-std::shared_ptr<Core> Core::initialize()
+std::shared_ptr<Core> Core::Initialize()
 {
 	return std::shared_ptr<Core>();
 }
 
-void Core::start()
+void Core::Start()
 {
 
 }
 
-void Core::stop()
+void Core::Stop()
 {
 
 }
 
-std::shared_ptr<Entity> Core::addEntity()
+std::shared_ptr<Entity> Core::AddEntity()
 {
 	return std::shared_ptr<Entity>();
 }
+

@@ -7,5 +7,5 @@ private:
 
 public:
 
-	float getDeltaTime();
+	float GetDeltaTime();
 };

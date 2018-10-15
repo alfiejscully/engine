@@ -1,15 +1,14 @@
 #include "Entity.h"
 #include "Core.h"
 
-//----constructor with string data type. 
-
+//constructor 
 
 Entity::Entity(std::string _name)
 {
 	_name = m_name;
 }
 
-std::shared_ptr<Core> Entity::getCore()
+std::shared_ptr<Core> Entity::GetCore()
 {
 	return std::shared_ptr<Core>();
 }

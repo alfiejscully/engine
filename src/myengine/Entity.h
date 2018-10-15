@@ -19,16 +19,10 @@ private:
 
 public:
 
-	// --- constructor in this file 
 	Entity(std::string _name);
 	std::string GetName() { return m_name; }
 
-	//int GetX() { return x; }
-	//void SetX(int _x) { x = _x; }
-
-	std::shared_ptr<Core> getCore();
-
-	//--- templates needed here to add components
+	std::shared_ptr<Core> GetCore();
 
 
 };
