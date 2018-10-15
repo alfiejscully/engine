@@ -18,4 +18,17 @@ add_library(myengine
   src/myengine/Environment.h
   src/myengine/Keyboard.cpp
   src/myengine/Keyboard.h
+  src/myengine/Material.cpp
+  src/myengine/Material.h
+  src/myengine/MaterialAttribute.cpp
+  src/myengine/MaterialAttribute.h
+  src/myengine/MeshRenderer.cpp
+  src/myengine/MeshRenderer.h
+  src/myengine/Resources.cpp
+  src/myengine/Resources.h
+  src/myengine/Screen.cpp
+  src/myengine/Screen.h
+  src/myengine/Transform.cpp
+  src/myengine/Transform.h
+
 )
