@@ -13,6 +13,8 @@ private:
 	std::weak_ptr<Core> m_core;
 	std::string m_name;
 
+	void m_tick();
+	void m_display();
 	//int x;
 
 public:
@@ -27,9 +29,6 @@ public:
 	std::shared_ptr<Core> getCore();
 
 	//--- templates needed here to add components
-
-	void tick();
-	void display();
 
 
 };

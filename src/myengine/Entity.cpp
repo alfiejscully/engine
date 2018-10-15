@@ -14,12 +14,12 @@ std::shared_ptr<Core> Entity::getCore()
 	return std::shared_ptr<Core>();
 }
 
-void Entity::tick()
+void Entity::m_tick()
 {
 
 }
 
-void Entity::display()
+void Entity::m_display()
 {
 
 }

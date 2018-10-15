@@ -1,4 +1,5 @@
-
+#ifndef MYENGINE_COMPONENT_H
+#define MYENGINE_COMPONENT_H
 #include <memory>
 
 class Entity;
@@ -12,6 +13,10 @@ private:
 
 	std::weak_ptr<Entity> m_entity;
 
+	void m_onInit();
+	void m_onBegin();
+	void m_onTick();
+	void m_onDisplay();
 
 public:
 
@@ -21,4 +26,4 @@ public:
 	std::shared_ptr<Environment> getEnvironment();
 
 };
-
+#endif
