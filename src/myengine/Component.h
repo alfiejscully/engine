@@ -13,10 +13,10 @@ private:
 
 	std::weak_ptr<Entity> m_entity;
 
-	void m_onInit();
+	/*void m_onInit();
 	void m_onBegin();
 	void m_onTick();
-	void m_onDisplay();
+	void m_onDisplay();*/
 
 public:
 

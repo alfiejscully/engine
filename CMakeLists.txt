@@ -3,6 +3,7 @@ project(Engine)
 
 include_directories(
   src
+  src/myengine
   contrib
 )
 

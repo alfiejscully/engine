@@ -9,7 +9,7 @@ std::shared_ptr<Core> Core::Initialize()
 
 void Core::Start()
 {
-
+	
 }
 
 void Core::Stop()
