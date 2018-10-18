@@ -15,7 +15,7 @@ private:
 
 	void m_tick();
 	void m_display();
-	//int x;
+	
 
 public:
 

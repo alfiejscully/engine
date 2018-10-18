@@ -4,6 +4,7 @@
 #include "Keyboard.h"
 #include "Environment.h"
 
+
 std::shared_ptr<Entity> Component::GetEntity()
 {
 	return std::shared_ptr<Entity>();
