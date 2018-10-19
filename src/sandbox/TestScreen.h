@@ -4,8 +4,8 @@
 class TestScreen: public Component 
 {
 private:
-
+	
 public:
-
-	void OnDisplay();
+	int health;
+	//void OnDisplay();
 };

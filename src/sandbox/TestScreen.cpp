@@ -1,6 +1,6 @@
 #include "TestScreen.h"
 
-void TestScreen::OnDisplay()
-{
-
-}
+//void TestScreen::OnDisplay()
+//{
+//
+//}

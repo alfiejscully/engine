@@ -13,13 +13,13 @@ private:
 
 	std::weak_ptr<Entity> m_entity;
 
-	/*void m_onInit();
+	void m_onInit();
 	void m_onBegin();
 	void m_onTick();
-	void m_onDisplay();*/
+	void m_onDisplay();
 
 public:
-
+	int test;
 	std::shared_ptr<Entity> GetEntity();
 	std::shared_ptr<Core> GetCore();
 	std::shared_ptr<Keyboard> GetKeyboard();

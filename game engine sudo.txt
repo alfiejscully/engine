@@ -1,0 +1,42 @@
+
+Entity
+{
+	vector<Component>
+	{
+		Component
+			> Transform
+			> MeshRenderer
+				Mesh
+				Material
+			> ...
+		...
+	}
+}
+...	
+
+
+
+
+
+------------------------------------------------
+
+Core
+{
+	vector<Entity>
+	{
+		Entity
+		{
+			vector<Component>
+			{
+				Component
+					> Transform
+					> MeshRenderer
+						Mesh
+						Material
+					> ...
+				...
+			}
+		}
+		...	
+	}
+}

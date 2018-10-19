@@ -4,6 +4,7 @@
 
 class Component;
 class Core;
+class TestScreen;
 
 class Entity
 {
@@ -21,6 +22,20 @@ public:
 
 	Entity(std::string _name);
 	std::string GetName() { return m_name; }
+
+	/*void SetName(std::string name) { m_name = name; }*/
+
+	void AddComponent(std::shared_ptr<Component> _component);
+	//void AddComponent(std::shared_ptr<TestScreen> _component);
+
+	std::shared_ptr<Component> GetComponent(int _i);
+
+	// Used to get the component without knowing the specific type (is it a TestScreen? is it a Rigidbody?
+	// Who knows, who cares!!)
+	template <typename T> std::shared_ptr<T> GetComponent(int _i)
+	{
+		return std::static_pointer_cast<T>(m_components.at(_i));
+	}
 
 	std::shared_ptr<Core> GetCore();
 
