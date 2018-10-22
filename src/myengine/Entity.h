@@ -26,9 +26,6 @@ public:
 	/*void SetName(std::string name) { m_name = name; }*/
 
 	void AddComponent(std::shared_ptr<Component> _component);
-	//void AddComponent(std::shared_ptr<TestScreen> _component);
-
-	std::shared_ptr<Component> GetComponent(int _i);
 
 	// Used to get the component without knowing the specific type (is it a TestScreen? is it a Rigidbody?
 	// Who knows, who cares!!)
