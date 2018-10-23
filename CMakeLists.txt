@@ -69,24 +69,24 @@ else()
   )
 endif()
 
-add_executable(game
+add_executable(sandbox
   src/sandbox/main.cpp
   src/sandbox/TestScreen.cpp
   src/sandbox/TestScreen.h
 )
 
-target_link_libraries(game myengine)
+target_link_libraries(sandbox myengine)
 
 if(MSVC)
-  add_custom_command(TARGET game POST_BUILD
+  add_custom_command(TARGET sandbox POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       "${CMAKE_SOURCE_DIR}/contrib/msvc-windows-x86/SDL2/bin/SDL2.dll"
-      "$<TARGET_FILE_DIR:game>"
+      "$<TARGET_FILE_DIR:sandbox>"
   )
 
-  add_custom_command(TARGET game POST_BUILD
+  add_custom_command(TARGET sandbox POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       "${CMAKE_SOURCE_DIR}/contrib/msvc-windows-x86/glew/bin/glew32.dll"
-      "$<TARGET_FILE_DIR:game>"
+      "$<TARGET_FILE_DIR:sandbox>"
   )
 endif()
