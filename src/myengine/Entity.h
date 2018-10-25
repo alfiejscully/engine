@@ -9,7 +9,6 @@ class TestScreen;
 class Entity
 {
 private:
-
 	std::vector<std::shared_ptr<Component>> m_components;
 	std::weak_ptr<Core> m_core;
 	std::string m_name;
@@ -19,7 +18,6 @@ private:
 	
 
 public:
-
 	Entity(std::string _name);
 	std::string GetName() { return m_name; }
 

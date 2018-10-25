@@ -24,7 +24,9 @@ public:
 	std::shared_ptr<Core> Initialize();
 	void Start();
 	void Stop();
-	std::shared_ptr<Entity> AddEntity();
+
+	//adding entity
+	void AddEntity(std::shared_ptr<Entity> _entity);
 
 
 };

@@ -17,8 +17,8 @@ void Core::Stop()
 
 }
 
-std::shared_ptr<Entity> Core::AddEntity()
+void Core::AddEntity(std::shared_ptr<Entity> _entity)
 {
-	return std::shared_ptr<Entity>();
+	m_entities.push_back(_entity);
 }
 

@@ -10,16 +10,14 @@ class Environment;
 class Component
 {
 private:
-
 	std::weak_ptr<Entity> m_entity;
 
-	void m_onInit();
-	void m_onBegin();
-	void m_onTick();
-	void m_onDisplay();
+	//virtual void m_onInit();
+	//virtual void m_onBegin();
+	//virtual void m_onTick();
+	//virtual void m_onDisplay();
 
 public:
-	int test;
 	std::shared_ptr<Entity> GetEntity();
 	std::shared_ptr<Core> GetCore();
 	std::shared_ptr<Keyboard> GetKeyboard();

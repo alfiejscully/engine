@@ -4,50 +4,68 @@
 
 #include "Entity.h"
 #include "Component.h"
-#include "TestScreen.h"
+//#include "TestScreen.h"
+#include "Transform.h"
+
+/*
+create core in init()
+
+then add entity to the core in init()
+
+get entity in tick()
+
+remove globe variable entity
+
+*/
+
+void Init();
+
+void Tick();
+
+std::shared_ptr<Entity> entity;
 
 int main()
 {
-	std::shared_ptr<Entity> e(new Entity("fred"));
+	Init();
 
-	std::shared_ptr<Component> c(new Component());
-	std::shared_ptr<Component> c1(new Component());
-	std::shared_ptr<Component> c2(new Component());
-	std::shared_ptr<TestScreen> c3(new TestScreen());
-
-	std::shared_ptr<Component> d;
-	std::shared_ptr<Component> d1;
-	std::shared_ptr<Component> d2;
-	std::shared_ptr<TestScreen> d3;
-
-	//add component to entity
-	e->AddComponent(c);
-	e->AddComponent(c1);
-	e->AddComponent(c2);
-	e->AddComponent(c3);
-
-	// get the component from the entity
-	d = e->GetComponent<Component>(0);
-	d1 = e->GetComponent<Component>(1);
-	d2 = e->GetComponent<Component>(2);
-	d3 = e->GetComponent<TestScreen>(3);
-
-	d->test = 10;
-	d1->test = 20;
-	d2->test = 30;
-	d3->test = 40;
-	d3->health = 50;
-
-	std::cout << e->GetName() << std::endl;
-	std::cout << std::endl;
-	std::cout << d->test << std::endl;
-	std::cout << d1->test << std::endl;
-	std::cout << d2->test << std::endl;
-	std::cout << d3->test << std::endl;
-	std::cout << d3->health << std::endl;
+	while (true)
+	{
+		Tick();
+	}
 
 	std::cin.get();
 
 	return 0;
 
+}
+
+void Init()
+{
+	std::shared_ptr<Entity> e(new Entity("fred"));
+
+	std::shared_ptr<Transform> transform(new Transform());
+
+	//add component to entity
+	e->AddComponent(transform);
+
+	entity = e;
+
+	transform->SetLocalPosition({ 10.0f, 0.0f, 0.0f });
+
+	std::cout << e->GetName() << std::endl;
+}
+
+void Tick()
+{
+	std::shared_ptr<Entity> e = entity;
+
+	std::shared_ptr<Transform> transform;
+
+	// get the component from the entity
+	transform = e->GetComponent<Transform>(0);
+
+	transform->Translate({ 1.0f, 0.0f, 0.0f });
+
+	std::cout << std::endl;
+	std::cout << transform->GetLocalPosition().x << std::endl;
 }
