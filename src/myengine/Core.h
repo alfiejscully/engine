@@ -20,13 +20,13 @@ private:
 	SDL_Window* m_window;
 
 public:
+	//void AddEntity(std::shared_ptr<Entity> _entity);
+	std::shared_ptr<Entity> AddEntity(std::string _name);
 
-	std::shared_ptr<Core> Initialize();
-	void Start();
-	void Stop();
+	std::shared_ptr<Entity> GetEntity(int _entity);
 
-	//adding entity
-	void AddEntity(std::shared_ptr<Entity> _entity);
+	void Run();
 
-
+	void Init();
+	void Tick();
 };
