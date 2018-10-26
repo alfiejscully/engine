@@ -5,14 +5,14 @@
 #include "Screen.h"
 #include "Transform.h"
 
-//void Core::AddEntity(std::shared_ptr<Entity> _entity)
-//{
-//	m_entities.push_back(_entity);
-//}
-
 std::shared_ptr<Entity> Core::AddEntity(std::string _name)
 {
-	
+	// instance of entity created 
+	std::shared_ptr<Entity> entity(new Entity(_name));
+
+	m_entities.push_back(entity);
+
+	return entity;
 }
 
 std::shared_ptr<Entity> Core::GetEntity(int _entity)
@@ -35,11 +35,6 @@ void Core::Run()
 
 void Core::Init()
 {
-	//// instance of entity created 
-	//std::shared_ptr<Entity> e(new Entity("fred"));
-
-	//// add the entity to the scene
-	//AddEntity(e);
 
 	// Entity created and added to scene
 	std::shared_ptr<Entity> e = AddEntity("fred");
@@ -50,8 +45,6 @@ void Core::Init()
 
 	//add the transform component to entity
 	e->AddComponent(transform);
-
-
 
 	// set the position of entity
 	transform->SetLocalPosition({ 10.0f, 0.0f, 0.0f });
