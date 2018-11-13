@@ -39,7 +39,6 @@ void Core::Init()
 	// Entity created and added to scene
 	std::shared_ptr<Entity> e = AddEntity("fred");
 
-
 	// instance of transform created 
 	std::shared_ptr<Transform> transform(new Transform());
 
