@@ -4,7 +4,7 @@
 
 #include "Core.h"
 
-int main()
+int main(int argc, char *argv[])
 {
 	// instance of core created 
 	std::shared_ptr<Core> core(new Core());
