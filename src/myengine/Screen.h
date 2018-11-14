@@ -6,16 +6,22 @@ class Screen
 {
 private:
 
-	std::string title;
-	int width = 800;
-	int height = 600;
+	std::string m_title;
+	int m_width;
+	int m_height;
 
-	bool closed = false;
+	bool m_quit = false;
 
-	SDL_Window *window = nullptr;
+	SDL_Window *m_window = nullptr;
+
+	bool Init();
 
 public:
 	Screen(const std::string &title, int width, int height);
 	~Screen();
+
+	void PollEvents();
+
+	bool IsClosed() const { return m_quit; }
 
 };
