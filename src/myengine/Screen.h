@@ -1,5 +1,5 @@
 #include <SDL2/SDL.h>
-#include <GL\glew.h>
+#include <GL/glew.h>
 #include <string>
 
 class Screen
@@ -10,8 +10,6 @@ private:
 	int m_width;
 	int m_height;
 
-	bool m_quit = false;
-
 	SDL_Window *m_window = nullptr;
 
 	bool Init();
@@ -20,8 +18,6 @@ public:
 	Screen(const std::string &title, int width, int height);
 	~Screen();
 
-	void PollEvents();
-
-	bool IsClosed() const { return m_quit; }
-
+	SDL_Window* GetWindow();
+	
 };

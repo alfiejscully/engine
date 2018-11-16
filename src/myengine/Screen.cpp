@@ -8,10 +8,7 @@ Screen::Screen(const std::string &title, int width, int height)
 	m_width = width;
 	m_height = height;
 
-	if (!Init())
-	{
-		m_quit = true;
-	}
+	Init();
 }
 
 Screen::~Screen()
@@ -41,22 +38,10 @@ bool Screen::Init()
 		throw std::exception();
 	}
 
-	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-	SDL_GL_SwapWindow(m_window);
-
 	return true;
 }
 
-void Screen::PollEvents()
+SDL_Window* Screen::GetWindow()
 {
-	SDL_Event event = {0};
-
-	while (SDL_PollEvent(&event))
-	{
-		if (event.type == SDL_QUIT)
-		{
-			m_quit = true;
-		}
-	}
+	return m_window;
 }
