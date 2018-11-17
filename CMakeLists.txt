@@ -54,6 +54,8 @@ add_library(myengine
   src/myengine/Resources.h
   src/myengine/Screen.cpp
   src/myengine/Screen.h
+  src/myengine/ShaderProgram.cpp
+  src/myengine/ShaderProgram.h  
   src/myengine/Transform.cpp
   src/myengine/Transform.h
 
