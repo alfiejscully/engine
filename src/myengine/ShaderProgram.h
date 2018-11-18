@@ -22,8 +22,11 @@ private:
 	GLuint m_shaderProgramID;
 
 	GLint success = 0;
+	GLint m_posAttribute;
 
 public:
 	ShaderProgram(std::string _vertex, std::string _fragment);
 	~ShaderProgram();
+
+	void Draw();
 };

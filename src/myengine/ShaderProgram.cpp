@@ -39,7 +39,7 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 	}
 
 	m_file.close(); //closes the fragment file
-
+ 
 	// Create and compile the vertex shader
 	m_vertexShader = m_vertexSrc.c_str();
 	m_vertexShaderID = glCreateShader(GL_VERTEX_SHADER); 
@@ -75,9 +75,27 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 	m_shaderProgramID = glCreateProgram();
 	glAttachShader(m_shaderProgramID, m_vertexShaderID);
 	glAttachShader(m_shaderProgramID, m_fragmentShaderID);
+
+	glBindFragDataLocation(m_shaderProgramID, 0, "outColor");
+
+	glLinkProgram(m_shaderProgramID);
+	glUseProgram(m_shaderProgramID);
+
+	m_posAttribute = glGetAttribLocation(m_shaderProgramID, "position");
+
+	glVertexAttribPointer(m_posAttribute, 2, GL_FLOAT, GL_FALSE, 0, 0);
+
+	glEnableVertexAttribArray(m_posAttribute);
+}
+
+void ShaderProgram::Draw()
+{
+	/*glDrawArrays(GL_TRIANGLES, 0, 3);*/
 }
 
 ShaderProgram::~ShaderProgram()
 {
-
+	//glDeleteProgram(m_shaderProgramID);
+	//glDeleteShader(m_fragmentShaderID);
+	//glDeleteShader(m_vertexShaderID);
 }
