@@ -13,7 +13,7 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 		std::cout << "Vertex file has been opened \n\n";
 	}
 
-	while (!m_file.eof())
+	while (!m_file.eof()) //loops while its not at the end of the file 
 	{
 		std::getline(m_file, m_line);
 		m_vertexSrc += m_line + "\n";
@@ -32,7 +32,7 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 		std::cout << "Fragment file has been opened \n\n";
 	}
 
-	while (!m_file.eof())
+	while (!m_file.eof()) //loops while its not at the end of the file 
 	{
 		std::getline(m_file, m_line);
 		m_fragmentSrc += m_line + "\n";
@@ -86,11 +86,12 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 	glVertexAttribPointer(m_posAttribute, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
 	glEnableVertexAttribArray(m_posAttribute);
+
 }
 
 void ShaderProgram::Draw()
 {
-	/*glDrawArrays(GL_TRIANGLES, 0, 3);*/
+	glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 ShaderProgram::~ShaderProgram()

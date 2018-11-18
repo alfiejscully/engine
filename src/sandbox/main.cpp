@@ -17,25 +17,25 @@ int main(int argc, char *argv[])
 	std::shared_ptr<Core> core(new Core());
 	Screen window("Engine", 800, 600);
 	std::shared_ptr<Keyboard> quit(new Keyboard());
-	std::shared_ptr<ShaderProgram> shader(new ShaderProgram("../shaders/VertShader.vert", "../shaders/FragShader.frag"));
 	
 	
+	GLuint vao;
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
 	
+	GLuint vbo;
+	glGenBuffers(1, &vbo);
 
-	float vertices[] = {
+	GLfloat vertices[] = {
 	 0.0f,  0.5f, // Vertex 1 (X, Y)
 	 0.5f, -0.5f, // Vertex 2 (X, Y)
 	-0.5f, -0.5f  // Vertex 3 (X, Y)
 	};
 
-	GLuint vbo;
-	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	GLuint vao;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
+	std::shared_ptr<ShaderProgram> shader(new ShaderProgram("../shaders/VertShader.vert", "../shaders/FragShader.frag"));
 
 	while (!quit->IsClosed())
 	{
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		shader->Draw();
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 
 		SDL_GL_SwapWindow(window.GetWindow());
