@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	GLuint vbo;
 	glGenBuffers(1, &vbo);
 
-	GLfloat vertices[] = {
+	float vertices[] = {
 	 0.0f,  0.5f, // Vertex 1 (X, Y)
 	 0.5f, -0.5f, // Vertex 2 (X, Y)
 	-0.5f, -0.5f  // Vertex 3 (X, Y)
@@ -42,10 +42,10 @@ int main(int argc, char *argv[])
 		quit->PollEvents();
 		
 		/*core->Run();*/
-		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		shader->Draw();
 
 
 		SDL_GL_SwapWindow(window.GetWindow());
@@ -53,10 +53,9 @@ int main(int argc, char *argv[])
 
 	
 
-	//glDeleteBuffers(1, &ebo);
-	//glDeleteBuffers(1, &vbo);
+	glDeleteBuffers(1, &vbo);
 
-	//glDeleteVertexArrays(1, &vao);
+	glDeleteVertexArrays(1, &vao);
 
 	return 0;
 }

@@ -91,12 +91,16 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 
 void ShaderProgram::Draw()
 {
+	m_uniColour = glGetUniformLocation(m_shaderProgramID, "triangleColor");
+
+	glUniform3f(m_uniColour, 0.0f, 1.0f, 0.0f);
+
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 ShaderProgram::~ShaderProgram()
 {
-	//glDeleteProgram(m_shaderProgramID);
-	//glDeleteShader(m_fragmentShaderID);
-	//glDeleteShader(m_vertexShaderID);
+	glDeleteProgram(m_shaderProgramID);
+	glDeleteShader(m_fragmentShaderID);
+	glDeleteShader(m_vertexShaderID);
 }
