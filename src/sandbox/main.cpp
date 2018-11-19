@@ -2,7 +2,6 @@
 #include <memory>
 #include <string>
 #include <GL/glew.h>
-#include <glm/glm.hpp>
 
 #include "Core.h"
 #include "Screen.h"

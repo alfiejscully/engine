@@ -1,9 +1,10 @@
 -make a vertex array class
 -make a vertex buffer class
--improve ECS
+-make meshRender class
 -get models implemented into the engine
 -make texture class to texture models
 -make controls to be able to control models
+-implement camera
 -implement simple collisions (AABB) and make model turn a different colour when a collision is made
 
 further addition is possible:

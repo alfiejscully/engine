@@ -58,6 +58,10 @@ add_library(myengine
   src/myengine/ShaderProgram.h  
   src/myengine/Transform.cpp
   src/myengine/Transform.h
+  src/myengine/VertexArray.cpp
+  src/myengine/VertexArray.h
+  src/myengine/VertexBuffer.cpp
+  src/myengine/VertexBuffer.h
 
 )
 
