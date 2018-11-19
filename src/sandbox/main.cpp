@@ -26,14 +26,35 @@ int main(int argc, char *argv[])
 	GLuint vbo;
 	glGenBuffers(1, &vbo);
 
+	////vertices for single triangle 
+	//GLfloat vertices[] = {
+	// 0.0f,  0.5f, 1.0f, 0.0f, 0.0f, // Vertex 1: Red
+	// 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // Vertex 2: Green
+	//-0.5f, -0.5f, 0.0f, 0.0f, 1.0f  // Vertex 3: Blue
+	//};
+
+	//vertices for rectangle 
 	GLfloat vertices[] = {
-	 0.0f,  0.5f, 1.0f, 0.0f, 0.0f, // Vertex 1: Red
-	 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // Vertex 2: Green
-	-0.5f, -0.5f, 0.0f, 0.0f, 1.0f  // Vertex 3: Blue
+		-0.5f,  0.5f, 1.0f, 0.0f, 0.0f, // Top-left
+		 0.5f,  0.5f, 0.0f, 1.0f, 0.0f, // Top-right
+		 0.5f, -0.5f, 0.0f, 0.0f, 1.0f, // Bottom-right
+		-0.5f, -0.5f, 1.0f, 1.0f, 1.0f  // Bottom-left
 	};
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	GLuint ebo;
+	glGenBuffers(1, &ebo);
+
+	GLuint elements[] = {
+		0, 1, 2,
+		2, 3, 0
+	};
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
+
 
 	std::shared_ptr<ShaderProgram> shader(new ShaderProgram("../shaders/VertShader.vert", "../shaders/FragShader.frag"));
 
@@ -50,6 +71,7 @@ int main(int argc, char *argv[])
 	}
 
 	
+	glDeleteBuffers(1, &ebo);
 
 	glDeleteBuffers(1, &vbo);
 

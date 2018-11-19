@@ -93,10 +93,15 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 
 void ShaderProgram::Draw()
 {
+	// Clear the screen to black
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	// Draw a rectangle from the 2 triangles using 6 indices
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+	//// Draw a triangle from the 3 vertices
+	//glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 ShaderProgram::~ShaderProgram()
