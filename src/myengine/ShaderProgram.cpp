@@ -32,7 +32,7 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 		std::cout << "Fragment file has been opened \n\n";
 	}
 
-	while (!m_file.eof()) //loops while its not at the end of the file 
+	while (!m_file.eof()) //loops until its reaches the end of the file 
 	{
 		std::getline(m_file, m_line);
 		m_fragmentSrc += m_line + "\n";
@@ -82,18 +82,19 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 	glUseProgram(m_shaderProgramID);
 
 	m_posAttribute = glGetAttribLocation(m_shaderProgramID, "position");
-
-	glVertexAttribPointer(m_posAttribute, 2, GL_FLOAT, GL_FALSE, 0, 0);
-
+	glVertexAttribPointer(m_posAttribute, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), 0);
 	glEnableVertexAttribArray(m_posAttribute);
+
+	m_colourAttribute = glGetAttribLocation(m_shaderProgramID, "color");
+	glVertexAttribPointer(m_colourAttribute, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(2 * sizeof(float)));
+	glEnableVertexAttribArray(m_colourAttribute);
 
 }
 
 void ShaderProgram::Draw()
 {
-	m_uniColour = glGetUniformLocation(m_shaderProgramID, "triangleColor");
-
-	glUniform3f(m_uniColour, 0.0f, 1.0f, 0.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
 
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 }

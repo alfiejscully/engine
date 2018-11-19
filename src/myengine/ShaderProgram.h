@@ -23,7 +23,7 @@ private:
 
 	GLint success = 0;
 	GLint m_posAttribute;
-	GLint m_uniColour;
+	GLint m_colourAttribute;
 
 public:
 	ShaderProgram(std::string _vertex, std::string _fragment);
