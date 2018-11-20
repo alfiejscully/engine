@@ -18,6 +18,8 @@ public:
 	Screen(const std::string &title, int width, int height);
 	~Screen();
 
+	void SetScreenColour(int r, int g, int b, int a);
+
 	SDL_Window* GetWindow();
 	
 };

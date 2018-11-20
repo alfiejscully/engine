@@ -1,5 +1,7 @@
 #include <memory>
 #include <vector>
+#include <string>
+#include <GL/glew.h>
 #include <SDL2/SDL.h>
 
 class Environment;
@@ -14,13 +16,15 @@ private:
 	std::shared_ptr<Environment> m_environment;
 	std::vector<std::shared_ptr<Entity>> m_entities;
 	std::shared_ptr<Keyboard> m_keyboard;
-	std::shared_ptr<Screen> m_screen;
 	bool m_runninng;
 
+	std::shared_ptr<Screen> m_window;
+
 public:
+	Core();
+	~Core();
 
 	std::shared_ptr<Entity> AddEntity(std::string _name);
-
 	std::shared_ptr<Entity> GetEntity(int _entity);
 
 	void Run();

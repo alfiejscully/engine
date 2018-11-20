@@ -41,6 +41,7 @@ bool Screen::Init()
 	return true;
 }
 
+
 SDL_Window* Screen::GetWindow()
 {
 	return m_window;

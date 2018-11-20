@@ -5,6 +5,16 @@
 #include "Screen.h"
 #include "Transform.h"
 
+Core::Core()
+{
+
+}
+
+Core::~Core()
+{
+
+}
+
 std::shared_ptr<Entity> Core::AddEntity(std::string _name)
 {
 	// instance of entity created 
@@ -35,7 +45,6 @@ void Core::Run()
 
 void Core::Init()
 {
-
 	// Entity created and added to scene
 	std::shared_ptr<Entity> e = AddEntity("fred");
 
@@ -46,10 +55,12 @@ void Core::Init()
 	e->AddComponent(transform);
 
 	// set the position of entity
-	transform->SetLocalPosition({ 10.0f, 0.0f, 0.0f });
+	transform->SetLocalPosition({ 0.0f, 0.0f, 0.0f });
 
 	// output the name once into program
 	std::cout << e->GetName() << std::endl;
+
+
 }
 
 void Core::Tick()
@@ -65,4 +76,5 @@ void Core::Tick()
 
 	// print out x position
 	std::cout << transform->GetLocalPosition().x << std::endl;
+
 }
