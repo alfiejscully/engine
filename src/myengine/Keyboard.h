@@ -6,8 +6,6 @@ class Keyboard
 private:
 
 	std::vector<int> m_keyCodes;
-	
-	bool m_quit = false;
 
 public:
 
@@ -15,6 +13,5 @@ public:
 	bool getKeyDown(int keyCode);
 	bool getKeyUp(int keyCode);
 
-	void PollEvents();
-	bool IsClosed() const { return m_quit; }
+	bool PollEvents();
 };

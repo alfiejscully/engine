@@ -15,7 +15,7 @@ bool Keyboard::getKeyUp(int keyCode)
 	return true;
 }
 
-void Keyboard::PollEvents()
+bool Keyboard::PollEvents()
 {
 	SDL_Event event = { 0 };
 
@@ -23,7 +23,12 @@ void Keyboard::PollEvents()
 	{
 		if (event.type == SDL_QUIT)
 		{
-			m_quit = true;
+			return false;
+		}
+		else if (event.type == SDL_KEYDOWN)
+		{
+			return true;
 		}
 	}
+	return true;
 }

@@ -8,6 +8,7 @@ class Environment;
 class Entity;
 class Keyboard;
 class Screen;
+class ShaderProgram;
 
 class Core
 {
@@ -16,9 +17,16 @@ private:
 	std::shared_ptr<Environment> m_environment;
 	std::vector<std::shared_ptr<Entity>> m_entities;
 	std::shared_ptr<Keyboard> m_keyboard;
-	bool m_runninng;
 
-	std::shared_ptr<Screen> m_window;
+	bool m_running = true;
+
+	GLuint vbo;
+	GLuint vao;
+
+	Screen* m_window;
+
+	std::shared_ptr<Keyboard> m_key;
+	std::shared_ptr<ShaderProgram> m_shader;
 
 public:
 	Core();

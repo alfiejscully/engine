@@ -4,15 +4,42 @@
 #include "Entity.h"
 #include "Screen.h"
 #include "Transform.h"
+#include "Keyboard.h"
+#include "ShaderProgram.h"
 
 Core::Core()
 {
+	
+	//std::shared_ptr<Screen> m_window(new Screen("ParaDox Engine", 800, 600));
 
+	// Screen created
+	m_window = new Screen("ParaDox Engine", 800, 600);
+
+	std::shared_ptr<Keyboard> m_key(new Keyboard());
+
+	glGenBuffers(1, &vbo);
+
+	//vertices for single triangle 
+	GLfloat vertices[] = 
+	{
+	 0.0f,  0.5f, 1.0f, 0.0f, 0.0f, // Vertex 1: Red
+	 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // Vertex 2: Green
+	-0.5f, -0.5f, 0.0f, 0.0f, 1.0f  // Vertex 3: Blue
+	};
+	
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+
+	std::shared_ptr<ShaderProgram> m_shader(new ShaderProgram("../shaders/VertShader.vert", "../shaders/FragShader.frag"));
 }
 
 Core::~Core()
 {
-
+	glDeleteBuffers(1, &vbo);
+	glDeleteVertexArrays(1, &vao);
 }
 
 std::shared_ptr<Entity> Core::AddEntity(std::string _name)
@@ -36,11 +63,13 @@ void Core::Run()
 	Init();
 
 	// game loop
-	while (true)
+	while (m_running)
 	{
+		m_running = m_key->PollEvents();
 		// call and pass core to tick
 		Tick();
 	}
+	SDL_Quit();
 }
 
 void Core::Init()
@@ -59,8 +88,6 @@ void Core::Init()
 
 	// output the name once into program
 	std::cout << e->GetName() << std::endl;
-
-
 }
 
 void Core::Tick()
@@ -77,4 +104,13 @@ void Core::Tick()
 	// print out x position
 	std::cout << transform->GetLocalPosition().x << std::endl;
 
+	//------------------------------------------------------------------------------
+
+	// Clear the screen to black
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	m_shader->Draw();
+
+	SDL_GL_SwapWindow(m_window->GetWindow());
 }

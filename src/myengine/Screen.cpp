@@ -16,8 +16,11 @@ Screen::~Screen()
 	SDL_DestroyWindow(m_window);
 	SDL_Quit();
 }
+
 bool Screen::Init()
 {
+	//SDL_Init(SDL_INIT_EVERYTHING);
+
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
 		std::cerr << "Failed to initalize SDL.\n";
@@ -38,9 +41,14 @@ bool Screen::Init()
 		throw std::exception();
 	}
 
+	if (!m_window)
+	{
+		std::cout << "Window failed to create" << std::endl;
+		SDL_Quit();
+	}
+
 	return true;
 }
-
 
 SDL_Window* Screen::GetWindow()
 {
