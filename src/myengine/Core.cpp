@@ -9,9 +9,6 @@
 
 Core::Core()
 {
-	
-	//std::shared_ptr<Screen> m_window(new Screen("ParaDox Engine", 800, 600));
-
 	// Screen created
 	m_window = new Screen("ParaDox Engine", 800, 600);
 
@@ -105,10 +102,6 @@ void Core::Tick()
 	std::cout << transform->GetLocalPosition().x << std::endl;
 
 	//------------------------------------------------------------------------------
-
-	// Clear the screen to black
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
 
 	m_shader->Draw();
 
