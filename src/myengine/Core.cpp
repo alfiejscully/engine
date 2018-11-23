@@ -72,7 +72,7 @@ void Core::Run()
 void Core::Init()
 {
 	// Entity created and added to scene
-	std::shared_ptr<Entity> e = AddEntity("fred");
+	std::shared_ptr<Entity> e = AddEntity("Example");
 
 	// instance of transform created 
 	std::shared_ptr<Transform> transform(new Transform());
@@ -103,7 +103,7 @@ void Core::Tick()
 
 	//------------------------------------------------------------------------------
 
-	m_shader->Draw();
+	m_shader->DrawTriangle();
 
 	SDL_GL_SwapWindow(m_window->GetWindow());
 }

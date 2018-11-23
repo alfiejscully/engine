@@ -75,6 +75,15 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 	m_shaderProgramID = glCreateProgram();
 	glAttachShader(m_shaderProgramID, m_vertexShaderID);
 	glAttachShader(m_shaderProgramID, m_fragmentShaderID);
+	//glBindAttribLocation(m_shaderProgramID, 0, "in_Position");
+	//glBindAttribLocation(m_shaderProgramID, 1, "in_Color");
+	//glBindAttribLocation(m_shaderProgramID, 2, "in_TexCoord");
+
+	//if (glGetError() != GL_NO_ERROR)
+	//{
+	//	throw std::exception();
+	//}
+
 
 	glBindFragDataLocation(m_shaderProgramID, 0, "outColor");
 
@@ -91,7 +100,7 @@ ShaderProgram::ShaderProgram(std::string _vertex, std::string _fragment)
 
 }
 
-void ShaderProgram::Draw()
+void ShaderProgram::DrawTriangle()
 {
 	// Clear the screen to black
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

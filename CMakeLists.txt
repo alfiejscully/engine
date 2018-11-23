@@ -50,8 +50,6 @@ add_library(myengine
   src/myengine/MaterialAttribute.h
   src/myengine/MeshRenderer.cpp
   src/myengine/MeshRenderer.h
-  src/myengine/Resources.cpp
-  src/myengine/Resources.h
   src/myengine/Screen.cpp
   src/myengine/Screen.h
   src/myengine/ShaderProgram.cpp
